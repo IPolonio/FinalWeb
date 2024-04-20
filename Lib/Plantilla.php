@@ -46,58 +46,25 @@ class plantilla
         <body>
 
 
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <a class="navbar-brand" href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/768px-Pok%C3%A9_Ball_icon.svg.png" width="36" /></a>
-                    <div class="collapse navbar-collapse" id="navbarExample">
-                        <ul class="navbar-nav me-auto mb-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/inicio.php">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="panel.php">Panel</a>
-                            </li>
-
-                            <li class="nav-item dropdown">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="Datos.php">Datos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="usuarios.php">Usuarios</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="Info.php">Acerca de</a>
-                            </li>
-                        </ul>
+        <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Mi Sitio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="./">Facturas</a>
                         </li>
-                        </ul>
-                        <div class="d-flex align-items-center flex-column flex-lg-row">
-
-                            <form class="me-2 mb-2 mb-lg-0 d-flex" action="buscar.php">
-
-                                <input type="text" class="form-control form-control-sm" placeholder="Maestro Pokemon" />
-
-                                <button class="btn"><i class="fas fa-search"></i></button>
-                            </form>
-
-
-                        </div>
-                    </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Hizo.php">Creador</a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
-
-            <div id="centro">
-
-
-
-
-
-
-        </body>
+            </div>
+        </nav>
 
         </html>
     <?php
@@ -109,13 +76,16 @@ class plantilla
 
     ?>
         </div>
+        <div class="container">
+
+        
         <footer>
             <hr />
             Derechos reservados <?= date('Y') ?> Isaac and Co.&copysr;
-            <?= $usuario->usuario ?>
-            <a href="salir.php" class="btn btn-danger btn-sm float-end">Salir</a>
+         <P>Bienvenido: <?= $usuario->usuario ?></P>
+            <a href="Salir.php" class="btn btn-danger btn-sm float-end">Salir</a>
         </footer>
-
+        </div>
 
 <?php
 

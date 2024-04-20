@@ -1,5 +1,6 @@
 <?php  
-
+require_once('Lib/Main.php');
+plantilla::apply("Hola");
 
 function mostrarfacts() {
     if(is_dir('facturas')) {
@@ -52,25 +53,7 @@ function mostrarfacts() {
 </head>
 
 <body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Mi Sitio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="./">Facturas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Item 2</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+   
         <br>
         <div class="text-end">
             <a href="Facturar.php" class="btn btn-warning">

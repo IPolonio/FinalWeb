@@ -22,6 +22,18 @@ function cargar($url)
     exit();
 }
 
+
+
+
+
+
+
+
+function setuser($usuario){
+
+    $_SESSION['usuario']= serialize($usuario);
+
+}
 function getuser($redirect = true)
 {
     if (isset($_SESSION['usuario'])) {
@@ -41,19 +53,24 @@ function getuser($redirect = true)
 
     return false;
 }
+class mensaje {
+    public static function error($mensaje) {
+        return "<div class='alert alert-danger' role='alert'>$mensaje</div>";
+    }
 
-function setuser($usuario){
+    public static function success($mensaje) {
+        return "<div class='alert alert-success' role='alert'>$mensaje</div>";
+    }
 
-    $_SESSION['usuario']= serialize($usuario);
+    public static function warning($mensaje) {
+        return "<div class='alert alert-warning' role='alert'>$mensaje</div>";
+    }
 
-  
-
-
-
-
-
-
+    public static function info($mensaje) {
+        return "<div class='alert alert-info' role='alert'>$mensaje</div>";
+    }
 }
+
 
 
 

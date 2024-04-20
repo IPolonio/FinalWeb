@@ -1,19 +1,30 @@
-<?php   
-require('Lib/Clases.php');
-require('Lib/Funciones.php');
-define('USUARIO',"adamix" );
-define('Contraseña', 'pasemesolosilomeresco70 ');
-
+<?php
+require('Lib/Main.php');
+define('USUARIO', 'adamix');
+define('Contraseña', 'pasemesolosilomeresco70');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 $user = new Usuario;
+$mensaje = '';
 
-if($_POST){
 
-    
+if(!isset($_SESSION['intentos'])){
+    $_SESSION['intentos'] = 0;
+}
+if ($_POST) {
+    $user = new Usuario;
 
- 
-        cargar('index.php');
-    
+    $user->usuario = $_POST['username'];
+    $user->Contraseña = $_POST['password'];
 
+    if ($user->usuario == USUARIO && $user->Contraseña == Contraseña) {
+        setuser($user);
+        cargar('');
+    }else{
+        $_SESSION['intentos']++;
+        $mensaje = mensaje::error("Clave incorrecta o Usuario Incorrecto Intentos: {$_SESSION['intentos']}");
+    }
 }
 
 
@@ -49,7 +60,7 @@ if($_POST){
                     </div>
 
                     <h4 class="card-title text-center">Iniciar sesión</h4>
-                    <form action="" method="post">
+                    <form action="Login.php" method="post">
                         <div class="mb-3">
                             <label for="username" class="form-label">Usuario</label>
                             <input value="<?= $user->usuario; ?>" type="text" class="form-control" id="username" name="username" placeholder="Ingrese su nombre de usuario" required autofocus>
@@ -60,7 +71,9 @@ if($_POST){
                             <div class="text-end">
                                 <i class="far fa-eye-slash password-icon"></i>
                             </div>
-                           
+
+                            <div> <?php echo $mensaje ?></div>
+
 
                         </div>
                         <button class="btn btn-primary w-100">Ingresar</button>
